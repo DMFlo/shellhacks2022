@@ -1,7 +1,7 @@
 import logo from '../images/logo_white.png';
 import Manage from './Manage';
 import 'antd/dist/antd.min.css';
-import {Layout, Menu } from 'antd';
+import {Layout} from 'antd';
 import React from 'react';
 
 const { Header, Content, Footer } = Layout;
