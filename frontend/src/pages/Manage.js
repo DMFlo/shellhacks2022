@@ -1,4 +1,4 @@
-import { Button, Form, Input, InputNumber, Popconfirm, Space, Table, Typography } from 'antd';
+import { AutoComplete, Button, Form, Input, InputNumber, Popconfirm, Space, Table, Typography } from 'antd';
 import {
     DeleteOutlined,
     EditOutlined,
@@ -22,7 +22,7 @@ const originData = [
     key: "2",
     service: "Disney+",
     date: "02/28/2022", 
-    price: 79.99,
+    price: 8.99,
   }, 
   {
     key: "3",
@@ -144,6 +144,7 @@ const Manage = () => {
       title: 'Last Used',
       dataIndex: 'date',
       editable: true,
+      defaultSortOrder: 'descend'
     },
     {
       title: 'Price Per Month',
@@ -211,12 +212,17 @@ const Manage = () => {
         pagination={{
           onChange: cancel,
         }}
+        style={{paddingTop: "5%", width: "60%", margin: "auto", fontSize: "70%"}}
       />
       <Button
         onClick={handleAdd}
         type="primary"
+        size="large"
         style={{
-          marginBottom: 16,
+          margin: "0 auto",
+          display: "block",
+          backgroundColor: "#042c60",
+          fontSize: "15px"
         }}
       >
         Add a new subscription
