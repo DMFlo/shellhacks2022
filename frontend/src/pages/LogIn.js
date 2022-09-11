@@ -53,19 +53,26 @@ function signInWithGoogle() {
         const user = result.user;
         console.log(user)
         // if not in database already, make entry
-        setDoc(doc(db, "users", user.uid), {
-            // create an empty doc for new users
-        }).then(
-            (response) => {
-            console.log(response)
-            // redirect after login
+        // this was deleting all our data upon re-login
+        // setDoc(doc(db, "users", user.uid, { merge: true }), {
+        //     // create an empty doc for new users
+        // }).then(
+        //     (response) => {
+        //     console.log(response)
+        //     // redirect after login
+        //     window.location.href = 'http://localhost:3000/Home'; // todo comment out for prod
+        //     // window.location.href = 'https://ucf-shellhacks.web.app/Home'; //todo uncomment for prod, improve security (by enforcing auth for /Home?)
+        //     }
+        // ).catch(
+        //     (error) => console.log(error)
+        // );
+
+        // redirect after login
             window.location.href = 'http://localhost:3000/Home'; // todo comment out for prod
             // window.location.href = 'https://ucf-shellhacks.web.app/Home'; //todo uncomment for prod, improve security (by enforcing auth for /Home?)
-            }
-        ).catch(
-            (error) => console.log(error)
-        );
-    }).catch((error) => {
+
+    }).catch(
+        (error) => {
     console.log(error);
     });
 }

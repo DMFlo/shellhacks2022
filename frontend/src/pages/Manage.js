@@ -16,6 +16,20 @@ const deleteService = async (key) => {
   updateDoc(doc(db, "users", auth.user.uid), {key: deleteField()})
 };
 
+// todo add data
+// setDoc(doc(db, "users", user.uid, { merge: true }), {
+        //     // create an empty doc for new users
+        // }).then(
+        //     (response) => {
+        //     console.log(response)
+        //     // redirect after login
+        //     window.location.href = 'http://localhost:3000/Home'; // todo comment out for prod
+        //     // window.location.href = 'https://ucf-shellhacks.web.app/Home'; //todo uncomment for prod, improve security (by enforcing auth for /Home?)
+        //     }
+        // ).catch(
+        //     (error) => console.log(error)
+        // );
+
 
 //const [newService, setNewService] = useState("");
 //const [newDate, setNewDate] = useState("");
@@ -159,11 +173,11 @@ const Manage = () => {
             <div>
               <Space size='large'>
                 <EditOutlined key="edit" onClick={() => {
-                  edit(record);
+                  edit(record)
                 }} />
                 <DeleteOutlined key="delete" onClick={() => {
-                  deleteService(record.key);
-                  handleDelete(record.key);
+                  deleteService(record.key)
+                  handleDelete(record.key)
                 }}/>
               </Space>
             </div>
