@@ -69,8 +69,8 @@ function signInWithGoogle() {
         // );
 
         // redirect after login
-            window.location.href = 'http://localhost:3000/Home'; // todo comment out for prod
-            // window.location.href = 'https://ucf-shellhacks.web.app/Home'; //todo uncomment for prod, improve security (by enforcing auth for /Home?)
+            // window.location.href = 'http://localhost:3000/Home'; // todo comment out for prod
+            window.location.href = 'https://ucf-shellhacks.web.app/Home'; //todo uncomment for prod, improve security (by enforcing auth for /Home?)
 
     }).catch(
         (error) => {

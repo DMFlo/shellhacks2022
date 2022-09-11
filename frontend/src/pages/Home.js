@@ -29,8 +29,8 @@ function signOutWithGoogle() {
         console.log("Sign-out successful.")
         console.log(auth)
         // redirect after sign-out
-        window.location.href = 'http://localhost:3000/'; // todo comment out for prod
-        // window.location.href = 'https://ucf-shellhacks.web.app/'; //todo uncomment for prod, improve security (by enforcing auth for /Home?
+        // window.location.href = 'http://localhost:3000/'; // todo comment out for prod
+        window.location.href = 'https://ucf-shellhacks.web.app/'; //todo uncomment for prod, improve security (by enforcing auth for /Home?
     }).catch((error) => {
         console.log("Error during sign-out.")
     });
