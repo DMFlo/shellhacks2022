@@ -14,11 +14,11 @@ const style = {
 };
 const buttonStyle = { 
     color: "white",
-    fontWeight: "bold", 
+    fontWeight: "bold",
+    float: "right", 
     marginTop: "1.5%",
-    marginLeft: "79%",
-    fontSize: "20px",
-    position: "fixed"
+    marginLeft: "auto",
+    fontSize: "20px"
 };
 
 
