@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/CardContent';
 import CardContent from '@mui/material/CardContent';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { auth, provider, db } from "../firebase-config";
+import { auth, provider, db, app } from "../firebase-config";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import {
     Routes,
@@ -42,7 +42,7 @@ const buttonStyle = {
 
 // use this instead of AuthStateListener, which I couldn't get to detect auth changes.
 function signInWithGoogle() {
-    const auth = getAuth();
+    const auth = getAuth(app);
     signInWithPopup(auth, provider)
     .then((result) => {
         console.log("auth state changed in LogIn")
@@ -52,6 +52,7 @@ function signInWithGoogle() {
         // The signed-in user info.
         const user = result.user;
         console.log(user)
+
         // if not in database already, make entry
         // this was deleting all our data upon re-login
         // setDoc(doc(db, "users", user.uid, { merge: true }), {
