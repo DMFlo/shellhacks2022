@@ -102,11 +102,3 @@ dist
 
 # TernJS port file
 .tern-port
-.github/workflows/firebase-hosting-merge.yml
-.github/workflows/firebase-hosting-pull-request.yml
-.gitignore
-frontend/.firebaserc
-frontend/firebase.json
-frontend/firestore.indexes.json
-frontend/firestore.rules
-frontend/.firebase/hosting.YnVpbGQ.cache
