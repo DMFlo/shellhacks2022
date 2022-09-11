@@ -4,39 +4,23 @@ import {
     EditOutlined,
 } from '@ant-design/icons';
 import React, { useState } from 'react';
+import { db, auth } from "../firebase-config";
+import { doc, updateDoc, deleteField, getDoc, setDoc } from "firebase/firestore";
 
-const originData = [
-  {
-    key: "0",
-    service: "Netflix",
-    date: "09/01/2022", 
-    price: 9.99,
-  }, 
-  {
-    key: "1",
-    service: "Hulu",
-    date: "08/20/2022", 
-    price: 6.99,
-  }, 
-  {
-    key: "2",
-    service: "Disney+",
-    date: "02/28/2022", 
-    price: 8.99,
-  }, 
-  {
-    key: "3",
-    service: "Amazon Prime",
-    date: "05/10/2022", 
-    price: 14.99,
-  }, 
-  {
-    key: "4",
-    service: "Spotify",
-    date: "09/10/2022", 
-    price: 9.99,
-  }, 
-];
+let originData;
+const getData = async (key) => {
+  originData = getDoc(doc(db, "users", auth.user.uid))
+};
+
+const deleteService = async (key) => {
+  updateDoc(doc(db, "users", auth.user.uid), {key: deleteField()})
+};
+
+
+//const [newService, setNewService] = useState("");
+//const [newDate, setNewDate] = useState("");
+//const [newPrice, setNewPrice] = useState("");
+
 
 const EditableCell = ({
   editing,
@@ -74,6 +58,7 @@ const EditableCell = ({
 };
 
 const Manage = () => {
+  getData();
   const [form] = Form.useForm();
   const [data, setData] = useState(originData);
   const [editingKey, setEditingKey] = useState('');
@@ -173,8 +158,13 @@ const Manage = () => {
         ) : (
             <div>
               <Space size='large'>
-                <EditOutlined key="edit" onClick={() => edit(record)} />
-                <DeleteOutlined key="delete" onClick={() => handleDelete(record.key)}/>
+                <EditOutlined key="edit" onClick={() => {
+                  edit(record);
+                }} />
+                <DeleteOutlined key="delete" onClick={() => {
+                  deleteService(record.key);
+                  handleDelete(record.key);
+                }}/>
               </Space>
             </div>
         );
