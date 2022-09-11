@@ -54,19 +54,19 @@ function signInWithGoogle() {
         console.log(user)
         // if not in database already, make entry
         setDoc(doc(db, "users", user.uid), {
-            name: "Los Angeles",
-            state: "CA",
-            country: "USA"
+            // create an empty doc for new users
         }).then(
-            (response) => console.log(response)
+            (response) => {
+            console.log(response)
+            // redirect after login
+            window.location.href = 'http://localhost:3000/Home'; // todo comment out for prod
+            // window.location.href = 'https://ucf-shellhacks.web.app/Home'; //todo uncomment for prod, improve security (by enforcing auth for /Home?)
+            }
         ).catch(
             (error) => console.log(error)
         );
-        // redirect after login
-        window.location.href = 'http://localhost:3000/Home'; // todo comment out for prod
-        // window.location.href = 'https://ucf-shellhacks.web.app/Home'; //todo uncomment for prod, improve security (by enforcing auth for /Home?)
     }).catch((error) => {
-        // Handle Errors here.
+    console.log(error);
     });
 }
 
